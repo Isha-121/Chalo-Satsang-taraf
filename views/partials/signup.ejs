@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="/css/signup.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<div class="form-popup" id="myForm">
+    <form action="/login" class="form-container">
+        <i class="fa-solid fa-xmark"></i>
+        <h1>Sign Up</h1>
+        <div class="email">
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+        </div>
+        <div class="password">
+            <label for="pwd"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="pwd" required>
+        </div>
+        <div class="age">
+            <label for="age"><b>Age</b></label>
+            <input type="number" placeholder="Enter Age" name="age" required>
+        </div>
+        <div class="gender">
+            <label for="gender"><b>Gender</b></label>
+            <div class="options">
+                <div>
+                <input type="radio" name="gender" id="female">
+                <label for="female"> Female </label>
+                </div>
+                <div>
+                    <input type="radio" name="gender" id="male">
+                    <label for="male"> Male </label>
+                </div>
+                <div>
+                    <input type="radio" name="gender" id="other">
+                    <label for="other"> Other </label>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn">Sign Up</button>
+
+    </form>
+</div>
