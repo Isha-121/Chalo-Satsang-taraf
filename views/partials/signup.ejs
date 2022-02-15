@@ -2,9 +2,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-<div class="form-popup" id="myForm">
+<div class="form-popup form-signup" id="myForm">
     <form action="/login" class="form-container">
-        <i class="fa-solid fa-xmark"></i>
+        <i class="close-btn fa-solid fa-xmark"></i>
         <h1>Sign Up</h1>
         <div class="email">
             <label for="email"><b>Email</b></label>
@@ -39,3 +39,11 @@
 
     </form>
 </div>
+
+
+<script>
+    //functionality for close button
+    document.querySelector('.close-btn').addEventListener("click",()=>{
+        document.querySelector('.form-signup').style.display = "none";
+    });
+</script>
