@@ -15,6 +15,9 @@ app.use(express.static("public"));
 app.get('/',(req,res)=>{
      res.render("Home")
 })
+app.get('/pathavali',(req,res)=>{
+    res.render("pathavali")
+})
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
