@@ -18,6 +18,9 @@ app.get('/',(req,res)=>{
 app.get('/pathavali',(req,res)=>{
     res.render("pathavali")
 })
+app.get('/audio', (req, res) => {
+    res.render("Audio")
+})
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });

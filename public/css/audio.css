@@ -1,0 +1,56 @@
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.audio-container
+{
+    display: flex;
+     justify-content: center;
+    width: 100vw;
+    padding: 1em 0;
+}
+.audio-container table
+{
+    width:80%;
+    border: 2px solid black;
+}
+.audio-container table .table-head tr
+{
+    background-color: #ff4f00 !important;
+    font-size: 2em;
+    font-weight: 800;
+}
+.audio-container table thead th
+{
+     border:2px solid grey;
+     padding:0.1em 0.1em;
+}
+.audio-container table thead tr .serial-no,
+.audio-container table tr .serial-no
+{
+    width: 10%;
+    text-align: center;
+}
+.audio-container table tr
+{
+    height:3em;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+.audio-container table tr:nth-child(even) 
+{
+    background-color: #F2994A;
+}
+.audio-container table tr:nth-child(odd) 
+{
+    background-color: #F2C94C;
+}
+.audio-container table tr td
+{
+   border:2px solid grey;
+   
+}
+
+

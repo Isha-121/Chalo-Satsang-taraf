@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audios</title>
+    <link rel="stylesheet" href="/css/audio.css">
+</head>
+<body>
+    <%- include("./partials/Navbar.ejs") %>
+     <div class="audio-container">
+         <table>
+             <thead class="table-head">
+            <tr>
+                <th class="serial-no">Sr No.</th>
+                <th id="name"> Name </th>
+            </tr>
+            </thead>
+            <tr>
+             <td class="serial-no">1. </td>
+             <td>
+                 <span> Shri ManglaCharan (શ્રી મંગલાચરણ) </span>
+            <audio controls src="/assets/Audios/Shri_Manglacharan.ogg"></audio>
+            </td>
+            </tr>
+            <tr>
+                <td class="serial-no">2. </td>
+                <td> 
+                   <span> Pratah-Smaran (પ્રાતઃસ્મરણ) </span>
+                    <audio controls src="/assets/Audios/Pratah_smaran.ogg"></audio>
+                </td>
+                <!-- <audio controls src="/assets/Audios/Pratah_smaran.ogg"></audio> -->
+            </tr>
+            <tr>
+                <td class="serial-no">3. </td>
+                <td> 
+                 <span>  Shri Yamunashtakam (શ્રી યમુનાષ્ટકમ) </span>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="serial-no">4. </td>
+                <td>
+                    <span> Shri Chatuh Shloki (શ્રી યમુનાષ્ટકમ) </span>
+                <audio controls src="/assets/Audios/Chatuh_shloki.ogg"></audio>
+                </td>
+            </tr>
+           
+         </table>
+     </div>
+
+</body>
+</html>
