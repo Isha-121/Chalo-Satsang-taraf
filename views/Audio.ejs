@@ -1,54 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audios</title>
     <link rel="stylesheet" href="/css/audio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <%- include("./partials/Navbar.ejs") %>
-     <div class="audio-container">
-         <table>
-             <thead class="table-head">
-            <tr>
-                <th class="serial-no">Sr No.</th>
-                <th id="name"> Name </th>
-            </tr>
-            </thead>
-            <tr>
-             <td class="serial-no">1. </td>
-             <td>
-                 <span> Shri ManglaCharan (શ્રી મંગલાચરણ) </span>
-            <audio controls src="/assets/Audios/Shri_Manglacharan.ogg"></audio>
-            </td>
-            </tr>
-            <tr>
-                <td class="serial-no">2. </td>
-                <td> 
-                   <span> Pratah-Smaran (પ્રાતઃસ્મરણ) </span>
-                    <audio controls src="/assets/Audios/Pratah_smaran.ogg"></audio>
-                </td>
-                <!-- <audio controls src="/assets/Audios/Pratah_smaran.ogg"></audio> -->
-            </tr>
-            <tr>
-                <td class="serial-no">3. </td>
-                <td> 
-                 <span>  Shri Yamunashtakam (શ્રી યમુનાષ્ટકમ) </span>
+        <div class="audio-container">
+            <table>
+                <thead class="table-head">
+                    <tr>
+                        <th class="serial-no">Sr No.</th>
+                        <th id="name"> Name </th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td class="serial-no">1. </td>
+                    <td class="player">
+                        <span> Shri ManglaCharan (શ્રી મંગલાચરણ) </span>
+                        <div class="audios">
+                            <audio src="/assets/Audios/Shri_ManglaCharan.ogg"> </audio>
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="serial-no">2. </td>
+                    <td class="player">
+                        <span> Pratah-Smaran (પ્રાતઃસ્મરણ) </span>
+                        <div class="audios">
+                            <audio src="/assets/Audios/Pratah_smaran.ogg"> </audio>
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="serial-no">3. </td>
+                    <td class="player">
+                        <span> Shri Yamunashtakam (શ્રી યમુનાષ્ટકમ) </span>
 
-                </td>
-            </tr>
-            <tr>
-                <td class="serial-no">4. </td>
-                <td>
-                    <span> Shri Chatuh Shloki (શ્રી યમુનાષ્ટકમ) </span>
-                <audio controls src="/assets/Audios/Chatuh_shloki.ogg"></audio>
-                </td>
-            </tr>
-           
-         </table>
-     </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="serial-no">4. </td>
+                    <td class="player">
+                        <span> Shri Chatuh Shloki (શ્રી ચતુઃશ્લોકી) </span>
+                    <div class="audios">
+                        <audio src="/assets/Audios/Chatuh_shloki.ogg"> </audio>
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
 
 </body>
+<script>
+    let audios = document.getElementsByClassName('audios');
+    console.log(audios);
+
+    for (let i = 0; i < audios.length; i++) {
+      let my_audio = audios[i].children[0];
+      let toggle_btn = audios[i].children[1];
+      toggle_btn.addEventListener('click',()=>{
+        //   if(my_audio.paused)
+        //   toggle_btn.classList.toggle("fa-pause");
+          if(my_audio.paused)
+          {
+              my_audio.play();
+              toggle_btn.classList.replace("fa-play","fa-pause");
+          }
+          else
+          {
+                my_audio.pause();
+                toggle_btn.classList.replace("fa-pause","fa-play");
+          }
+      })
+
+    }
+</script>
+
 </html>
