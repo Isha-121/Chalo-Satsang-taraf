@@ -12,81 +12,95 @@ background: linear-gradient(135deg, #DDEFBB, #FFEEEE,#DDEFBB); /* W3C, IE 10+/ E
 
 min-height:100vh;
 }
-.audio-container
+.path-container
 {
     display: flex;
-     justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 100vw;
     padding: 1em 0;
+    
 }
-.audio-container table
+.path-container h1 
+{
+    font-size: 3em;
+    background: #1a2a6c;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #fdbb2d, #b21f1f, #1a2a6c);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #fdbb2d, #b21f1f, #1a2a6c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+    width:100%;
+    text-align: center;
+}
+.path-container table
 {
     width:80%;
     border: 2px solid black;
 }
-.audio-container table .table-head tr
+.path-container table .table-head tr
 {
     background-color: #ff4f00 !important;
     font-size: 2em;
     font-weight: 700;
     height:fit-content;
 }
-.audio-container table thead th
+.path-container table thead th
 {
      border:2px solid grey;
      padding:0.3em 0.1em;
 }
-.audio-container table thead tr .serial-no,
-.audio-container table tr .serial-no
+.path-container table thead tr .serial-no,
+.path-container table tr .serial-no
 {
     width: 10%;
     text-align: center;
 }
-.audio-container table tr
+.path-container table tr
 {
     height:fit-content;
     font-size: 1.3em;
     font-weight: 600;
 }
-.audio-container table tr:nth-child(even) 
+.path-container table tr:nth-child(even) 
 {
     background-color: #F2994A;
 }
-.audio-container table tr:nth-child(odd) 
+.path-container table tr:nth-child(odd) 
 {
     background-color: #F2C94C;
 }
-.audio-container table tr td
+.path-container table tr td
 {
   padding: 1em 0.2em;
 }
-.audio-container table tr .player
+.path-container table tr .player
 {
   position: relative;
 }
-.audio-container table tr .player span
+.path-container table tr .player span
 {
    position: absolute;
    left: 3%;
    top:50%;
  transform: translate(-3%,-50%);
 }
-.audio-container table tr .player .audios
+.path-container table tr .player .audios
 {
     position: absolute;
     right:10%;
     top:50%;
    transform: translate(-10%,-50%);
 }
-.audio-container table tr td .audios i
+.path-container table tr td .audios i
 {
     font-size: 1.5em;
 }
-.audio-container table tr td .audios .fa-play
+.path-container table tr td .audios .fa-play
 {
     color:red;
 }
-.audio-container table tr td .audios .fa-pause
+.path-container table tr td .audios .fa-pause
 {
     color:green;
 }

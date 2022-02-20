@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+let fs = require('fs');
 const port = process.env.PORT || 3001;
 const app = express();
 
@@ -18,9 +19,13 @@ app.get('/',(req,res)=>{
 app.get('/pathavali',(req,res)=>{
     res.render("pathavali")
 })
+app.get('/pathavali/nitya_niyam_path',(req,res)=>{
+    res.render("Nitya_niyam_path");
+})
 app.get('/audio', (req, res) => {
     res.render("Audio")
 })
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });

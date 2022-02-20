@@ -1,0 +1,30 @@
+*
+{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.path-popup
+{ width:100vw;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: fixed;
+   top:0;
+   background-color:transparent;
+    z-index: 5; 
+}
+.path-popup .text-container
+{
+    display: flex;
+    flex-direction: column;
+    width:30vw;
+    height:50vh;
+    background-color:#fff;
+    color:black;
+    justify-content: space-evenly;
+    padding: 1em 2em;
+    position: relative;
+    border:2px solid black;
+}
