@@ -1,8 +1,10 @@
 const express = require('express');
 const path = require('path');
-let fs = require('fs');
+const fs = require('fs');
 const port = process.env.PORT || 3001;
 const app = express();
+
+
 
 // to define and render template engines
 app.set('view engine', 'ejs');
@@ -10,6 +12,8 @@ app.set('views', path.join(__dirname, 'views'));
 
 //serve static files such as images, CSS files, and JavaScript files, 
 app.use(express.static("public"));
+
+
 
 // const {home} = require('./models/index');
 // app.use('/',home);
@@ -19,8 +23,30 @@ app.get('/',(req,res)=>{
 app.get('/pathavali',(req,res)=>{
     res.render("pathavali")
 })
+
+function read()
+{
+   // const data = "";
+    fs.readFileSync('./public/assets/Path/temp.txt', 'UTF-8', (err, data) => {
+        if (err)
+            console.log(err);
+        else {
+            console.log(data);
+            return data;
+        }
+    })
+}
+const data = fs.readFileSync('./public/assets/Path/temp.txt',
+    { encoding: 'utf8', flag: 'r' });
+console.log(data);
 app.get('/pathavali/nitya_niyam_path',(req,res)=>{
-    res.render("Nitya_niyam_path");
+    const data = fs.readFileSync('./public/assets/Path/temp.txt',
+        { encoding: 'utf8', flag: 'r' });
+    console.log(data);
+    res.render("Nitya_niyam_path",{data});
+})
+app.get('/pathavali/8_sama_na_darshan', (req, res) => {
+    res.render("8_sama_na_darshan");
 })
 app.get('/audio', (req, res) => {
     res.render("Audio")
