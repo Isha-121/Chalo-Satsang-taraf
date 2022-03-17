@@ -1,0 +1,46 @@
+*
+{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.curtain
+{
+   max-width:100vw;
+   min-height:100vh;
+   overflow: hidden;
+   display: flex;
+   justify-content: space-around;
+  
+}
+.curtain .left-curtain
+{
+    transform: translateX(0);
+}
+.curtain .right-curtain
+{
+    transform: translateX(0);
+}
+.curtain .curtain-panel
+{
+    width:50%;
+    min-height:100vh;
+    background: #CB356B;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #BD3F32, #CB356B,#BD3F32,#CB356B,#BD3F32, #CB356B,#BD3F32,#CB356B);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #BD3F32, #CB356B,#BD3F32,#CB356B,#BD3F32, #CB356B,#BD3F32,#CB356B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   cursor:pointer;
+    transition: all 5s ease-out;
+    z-index:2;
+}
+.curtain .text
+{
+   display: none;
+}
+/* .curtain .left-curtain
+{
+    transform: translateX(-100%);
+}
+.curtain .right-curtain
+{
+    transform: translateX(100%);
+}  */

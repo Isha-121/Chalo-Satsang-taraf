@@ -36,17 +36,19 @@ function read()
         }
     })
 }
-const data = fs.readFileSync('./public/assets/Path/temp.txt',
-    { encoding: 'utf8', flag: 'r' });
-console.log(data);
+
 app.get('/pathavali/nitya_niyam_path',(req,res)=>{
-    const data = fs.readFileSync('./public/assets/Path/temp.txt',
-        { encoding: 'utf8', flag: 'r' });
-    console.log(data);
-    res.render("Nitya_niyam_path",{data});
+    fs.readFile('./public/assets/Path/temp.txt','utf8',(error,data)=>{
+        console.log(data);
+        res.render("Nitya_niyam_path", { data });
+    });
+    
 })
 app.get('/pathavali/8_sama_na_darshan', (req, res) => {
     res.render("8_sama_na_darshan");
+})
+app.get('/pathavali/introduction', (req, res) => {
+    res.render("introduction");
 })
 app.get('/audio', (req, res) => {
     res.render("Audio")
