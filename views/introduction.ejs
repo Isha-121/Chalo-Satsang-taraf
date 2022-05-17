@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,33 +8,113 @@
     <title>Introduction about Shrinathji, Shri Mahaprabhuji and Shri Yamunaji</title>
     <link rel="stylesheet" href="/css/intro.css">
 </head>
+
 <body>
+
     <div class="curtain">
+
         <div class="curtain-panel left-curtain"></div>
-        
-            <div class="text">
-                <h2>
-                    Shrinathji
+
+        <div class="text">
+            <%- include("./partials/secondary_navbar.ejs") %>
+                <h2 class="intro">
+                    Introduction of Shrinathji, Shri Yamunaji and Shri Mahaprabhuji
                 </h2>
-                <img src="" alt="">
-                <div class="content">
-            
+                <div class="image">
+                    <div class="image1">
+                        <figure>
+                            <a href="#mahaprabhuji"><img src="/assets/images/shri_mahaprabhuji.png"
+                                    alt="Shri Vallabh"></a>
+                            <figcaption>Shri Mahaprabhuji</figcaption>
+                        </figure>
+                    </div>
+                    <div class="image2">
+                        <figure>
+                            <a href="#shrinathji"><img src="/assets/images/shri_shrinathji.png" alt="Shrinathji"></a>
+
+                            <figcaption>Shri Shrinathji</figcaption>
+                        </figure>
+                    </div>
+                    <div class="image3">
+                        <figure>
+                            <a href="#yamunaji"><img src="/assets/images/shri_yamunaji.png" alt="Shri Yamunaji"></a>
+
+                            <figcaption>Shri Yamunaji</figcaption>
+                        </figure>
+                    </div>
+
+
                 </div>
-            </div>
-            <div class="curtain-panel right-curtain">
-            </div>
+
+                <div class="content">
+                    <div id="mahaprabhuji">
+                        <h2> Shri Mahaprabhuji</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga iusto perferendis nostrum
+                            ipsam totam, neque officiis autem ut quo consectetur est reprehenderit facere inventore
+                            error id a nisi ex veritatis illo! Maxime minus vitae provident libero, sunt saepe tempore
+                            ipsam numquam. Delectus perspiciatis, laborum laudantium ab voluptate recusandae ullam,
+                            laboriosam vitae veniam atque eius nam mollitia iusto cum quaerat modi assumenda sunt sit.
+                            Earum error soluta laborum nihil, qui ex impedit temporibus totam aut saepe eius laboriosam
+                            nemo, magnam non libero nulla minus, reiciendis officiis! Doloribus laboriosam eos nam
+                            voluptates est labore neque reprehenderit, velit nisi libero corrupti eaque dolorum incidunt
+                            modi odit error aliquid tempora odio quaerat quos. Aperiam consectetur natus ipsam alias
+                            repellat, nihil porro quaerat neque. Dolor illo molestias omnis officia natus quasi
+                            voluptates esse quod harum. Earum possimus maxime consectetur vitae ratione corporis,
+                            numquam facere voluptas odio consequatur ea distinctio ab consequuntur dignissimos est,
+                            atque quae quam esse natus veniam quidem laboriosam cumque. Veniam, perferendis! Aut quis
+                            beatae quo exercitationem ratione. Totam ea corrupti tempore, atque harum, nisi eligendi
+                            iste repudiandae fuga nostrum dolorem facilis alias! Quos quas explicabo iure totam
+                            doloremque dolor nostrum fugiat reprehenderit nisi repudiandae amet officiis numquam rerum
+                            labore, ratione asperiores sit.
+                        </p>
+                    </div>
+                    <div id="shrinathji">
+                        <h2> Shri Shrinathji</h2>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse odio maiores doloribus amet,
+                            velit similique numquam, facere possimus exercitationem sed nobis repellendus deleniti
+                            cumque? Cupiditate fugiat hic nisi quos saepe?
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. In voluptates dolor rem magni
+                            harum, totam aliquid. Laborum illum aperiam, voluptate nisi enim, temporibus facilis saepe
+                            natus eaque eligendi sapiente suscipit.
+                        </p>
+                    </div>
+                    <div id="yamunaji">
+                        <h2> Shri Yamunaji</h2>
+                        <p>
+                            Shri Yamjunaji' swarup is "Alaukkik"<br>
+                            On the Earth she lives as form of water<br>
+                            We can have her darshan at "VISHRAMGHAT" in Mathura and "DHAKURANIGHAT" in Gokul.<br>
+                            The aarti of Shri Yamunaji is done in morning and evening at these places.<br>
+                            The fear of "YAM" goes away by just Shri Yamunaji's "pan"<br>
+                            With the krupa of Shri Yamunaji, Shri Thakorji accepts our Seva.<br>
+                            Atleat one time in our life we should go to Vraj and do Shri Yamunaji's darshan and pan.<br>
+                            Another name of Shri Yamunaji is Kalindiji.<br>
+                            Shri Yamunaji is called as mother of Pushtimargiya vaishnava.<br>
+                        </p>
+                    </div>
+                    
+                </div>
+                <%- include("./partials/login.ejs") %>
+                    <%- include("./partials/signup.ejs") %>
+                        <%- include("./partials/Footer.ejs") %>
+        </div>
+        <div class="curtain-panel right-curtain">
+        </div>
     </div>
-    
+
 </body>
 <script>
 
-   document.querySelector('.curtain').addEventListener('click',()=>{
-       document.querySelector('.left-curtain').style.transform = "translateX(-100%)";
-       document.querySelector('.right-curtain').style.transform = "translateX(100%)";
-       document.querySelector('.text').style.display = "block";
-     
-   })
+    document.querySelector('.curtain').addEventListener('click', () => {
+        document.querySelector('.left-curtain').style.transform = "translateX(-100%)";
+        document.querySelector('.right-curtain').style.transform = "translateX(100%)";
+        document.querySelector('.text').style.display = "block";
+
+    })
 
 
 </script>
+
 </html>

@@ -29,12 +29,30 @@
 background: -webkit-linear-gradient(to right, #BD3F32, #CB356B,#BD3F32,#CB356B,#BD3F32, #CB356B,#BD3F32,#CB356B);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #BD3F32, #CB356B,#BD3F32,#CB356B,#BD3F32, #CB356B,#BD3F32,#CB356B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
    cursor:pointer;
-    transition: all 5s ease-out;
+    transition: all 7s ease-in-out;
     z-index:2;
 }
 .curtain .text
 {
    display: none;
+   position: absolute;
+   width: 100vw;
+   min-height: 100vh;
+   background-color: #DDEFBB;
+}
+.curtain .text .intro
+{
+     text-align: center;
+     margin:1em 0;
+     font-size: 1.8em;
+    background: #780206;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #061161, #780206);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #061161, #780206);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
 }
 /* .curtain .left-curtain
 {
@@ -44,3 +62,40 @@ background: linear-gradient(to right, #BD3F32, #CB356B,#BD3F32,#CB356B,#BD3F32, 
 {
     transform: translateX(100%);
 }  */
+.curtain .text .image
+{
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    padding-top:1em;
+}
+img
+{
+    height: 400px;
+}
+figure figcaption
+{
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.4em;
+
+}
+.curtain .text .content
+{
+     padding: 1em 2em;
+     font-size: 1.3em;
+     color: black;
+     width: 60%;
+     margin:auto;
+}
+.curtain .text .content h2
+{
+    text-align: center;
+        margin: 1em 0;
+        font-size: 1.5em;
+        background: #780206;
+        background: -webkit-linear-gradient(to right, #061161, #780206);
+        background: linear-gradient(to right, #061161, #780206);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+}
