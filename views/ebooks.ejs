@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Books</title>
+    <link rel="stylesheet" href="/css/ebooks.css">
+</head>
+
+<body>
+    <%- include("./partials/Navbar.ejs") %>
+        <div class="book-container">
+            <h2> E-Books</h2>
+            <div class="books">
+                <div class="left-book">
+                   
+                    <a href="/assets/books/pushti_bhag_1.PDF" download>
+                        <img src="/assets/images/book.png" alt="">
+                        <div class="part">Part-1</div>
+                    </a>
+                  
+                    <a href="/assets/books/pushti_bhag_1.PDF" download>
+                        <img src="/assets/images/book.png" alt="">
+                        <div class="part">Part-3</div>
+                    </a>
+                </div>
+                <div class="centre">
+                    <img class="main-image" src="/assets/images/krishna-sandipani.jpg" alt="">
+                    <a href="/assets/books/pushti_bhag_1.PDF" download>
+                        <img src="/assets/images/book.png" alt="">
+                    <div class="part">Part-5</div>
+                    </a>
+                </div>
+
+                <div class="right-book">
+                    <a href="/assets/books/pushti_bhag_1.PDF" download>
+                        <img src="/assets/images/book.png" alt="">
+                    <div class="part">Part-2</div></a>
+                    <a href="/assets/books/pushti_bhag_1.PDF" download>
+                        <img src="/assets/images/book.png" alt="">
+                    <div class="part">Part-4</div></a>
+                </div>
+                
+
+
+            </div>
+        </div>
+
+<%- include("./partials/Footer.ejs") %>
+</body>
+</html>

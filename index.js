@@ -53,6 +53,9 @@ app.get('/pathavali/introduction', (req, res) => {
 app.get('/audio', (req, res) => {
     res.render("Audio")
 })
+app.get('/e-books',(req,res)=>{
+    res.render("ebooks");
+})
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
