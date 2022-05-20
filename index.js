@@ -56,6 +56,9 @@ app.get('/audio', (req, res) => {
 app.get('/e-books',(req,res)=>{
     res.render("ebooks");
 })
+app.get('/videos',(req,res)=>{
+    res.render("video");
+})
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
