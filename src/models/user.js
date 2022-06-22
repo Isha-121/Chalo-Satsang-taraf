@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const passport_local_mongoose = require('passport-local-mongoose');
+const passportLocalMongoose = require('passport-local-mongoose');
 const userSchema = new mongoose.Schema({
     email:{
         type:String,
@@ -7,20 +7,7 @@ const userSchema = new mongoose.Schema({
     username:
     {
         type:String,
-    },
-    password:
-    {
-        type:String,
-    },
-    confirm:
-    {
-        type: String,
-    },
-    gender:
-    {
-        type:String,
     }
-
 });
 // userSchema.pre('save',async function(next){
 //     if (this.isModified("password")) {
@@ -29,6 +16,6 @@ const userSchema = new mongoose.Schema({
 //     }
 //     next();
 // })
-userSchema.plugin(passport_local_mongoose);
-const Register = new mongoose.model('register',userSchema);
-module.exports = Register;
+userSchema.plugin(passportLocalMongoose);
+const User = new mongoose.model('register',userSchema);
+module.exports = User;

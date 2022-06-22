@@ -86,7 +86,7 @@ background: linear-gradient(to left, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Fi
    display:flex;
    justify-content: flex-end;
 }
-.navbar .main-navbar .nav-buttons button
+.navbar .main-navbar .nav-buttons .register-links
 {
     margin:0.25em 1.5em 0.25em 0em;
     font-weight: 600;
@@ -94,14 +94,14 @@ background: linear-gradient(to left, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Fi
     background-color: black;
     border:none;
     font-size: 1em;
-    padding: 0.25em 0.25em;
+    padding: 0.25em 0.35em;
     border-radius: 8px;
     transition: 0.3s all ease-in;
+    text-decoration: none;
 }
-.navbar .main-navbar .nav-buttons button:hover
+.navbar .main-navbar .nav-buttons .register-links:hover
 {
     background-color: #f12711;
-    padding: 0.35em 0.25em;
-    cursor: pointer;
+    padding: 0.25em 0.35em;
 }
 

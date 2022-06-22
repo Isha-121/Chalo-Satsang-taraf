@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,136 +11,24 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <%- include("./partials/Navbar.ejs") %>
-    <div class="faq-container">
-    <h2>
-        Discussion Forum
-    </h2>
-    
-        <div class="questions">
-            <div class="question">
-                
-            <p class="question-text">
-                <span>Q.</span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, aspernatur minus! Sint molestiae quaerat vel repudiandae nam ad, similique sit nobis vitae voluptatum inventore provident a assumenda quae saepe fugiat odio.
-            </p>
-            <hr>
-            <div class="reply-text">
-                <div class="reply-span">
-                    <span class="count-replies">
-                        Total replies: 2
-                    </span>
+        <div class="faq-container">
+            <h2>
+                Discussion Forum
+            </h2>
+            
+                <div class="questions">
                     
-                    <button class="reply-btn">
-                        Replies
-                        <i class="fa-solid fa-caret-down"></i>
-                    </button>
-                </div>
-                <div class="reply-container">
-                <button id="to-reply">
-                    <i class="fa-solid fa-reply"></i>
-                    Reply
-                </button> 
-                    <div class="replies">
-                     
-                        <div class="reply">
-                            <article>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid sint officia, eligendi consequatur beatae veritatis perspiciatis itaque, sed voluptate accusantium repudiandae? Commodi sit sint dignissimos repellat minus, sunt voluptates explicabo?
-                            </article>
-                            <hr>
-                            <div class="comment-btn">
-                                <div class="feedback-container">
-                                    <div class="feedback">
-                                        <i class="fa-solid fa-thumbs-up"></i>
-                                        <span>6</span>
-                                    </div>
-                                    <div class="feedback">
-                                        <i class="fa-solid fa-thumbs-down"></i>
-                                        <span>3</span>
-                                    </div>
-                                </div>
-                            <h4>Replied by: abcfdgdfgvv</h4>
-                            </div>
-                        </div>
-                        <div class="reply">
-                            <article>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid sint officia, eligendi consequatur beatae
-                                veritatis perspiciatis itaque, sed voluptate accusantium repudiandae? Commodi sit sint dignissimos repellat
-                                minus, sunt voluptates explicabo?
-                            </article>
-                            <hr>
-                            <div class="comment-btn">
-                                <div class="feedback-container">
-                                    <div class="feedback">
-                                        <i class="fa-solid fa-thumbs-up"></i>
-                                        <span>6</span>
-                                    </div>
-                                    <div class="feedback">
-                                        <i class="fa-solid fa-thumbs-down"></i>
-                                        <span>3</span>
-                                    </div>
-                                </div>
-                                <h4>Replied by: abcfdgdfgvv</h4>
-                            </div>
-                        </div>
-                        
-                        <div class="reply">
-                            <article>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid sint officia, eligendi consequatur beatae
-                                veritatis perspiciatis itaque, sed voluptate accusantium repudiandae? Commodi sit sint dignissimos repellat
-                                minus, sunt voluptates explicabo?
-                            </article>
-                            <hr>
-                            <div class="comment-btn">
-                                <div class="feedback-container">
-                                    <div class="feedback">
-                                        <i class="fa-solid fa-thumbs-up"></i>
-                                        <span>6</span>
-                                    </div>
-                                    <div class="feedback">
-                                        <i class="fa-solid fa-thumbs-down"></i>
-                                        <span>3</span>
-                                    </div>
-                                </div>
-                                <h4>Replied by: abcfdgdfgvv</h4>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    </div>
-            </div>
-            </div>
-                <div class="question">
-                
-                    <p class="question-text">
-                        <span>Q.</span>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, aspernatur minus! Sint molestiae quaerat vel
-                        repudiandae nam ad, similique sit nobis vitae voluptatum inventore provident a assumenda quae saepe fugiat odio.
-                    </p>
-                    <hr>
-                    <div class="reply-text">
-                        <div class="reply-span">
-                            <span class="count-replies">
-                                Total replies: 2
-                            </span>
-                
-                            <button class="reply-btn">
-                                Replies
-                                <i class="fa-solid fa-caret-down"></i>
-                            </button>
-                        </div>
-                        <div class="hidden-content">
-                
-                        </div>
-                    </div>
-                </div>
-                    <div class="question">
-                    
+                    <!-- <div class="question">
+
                         <p class="question-text">
                             <span>Q.</span>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, aspernatur minus! Sint molestiae quaerat vel
-                            repudiandae nam ad, similique sit nobis vitae voluptatum inventore provident a assumenda quae saepe fugiat odio.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, aspernatur minus! Sint
+                            molestiae quaerat vel
+                            repudiandae nam ad, similique sit nobis vitae voluptatum inventore provident a assumenda
+                            quae saepe fugiat odio.
                         </p>
                         <hr>
                         <div class="reply-text">
@@ -147,40 +36,132 @@
                                 <span class="count-replies">
                                     Total replies: 2
                                 </span>
-                    
+
                                 <button class="reply-btn">
                                     Replies
                                     <i class="fa-solid fa-caret-down"></i>
                                 </button>
                             </div>
                             <div class="hidden-content">
-                    
+
                             </div>
                         </div>
                     </div>
-            
+                    <div class="question">
+
+                        <p class="question-text">
+                            <span>Q.</span>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, aspernatur minus! Sint
+                            molestiae quaerat vel
+                            repudiandae nam ad, similique sit nobis vitae voluptatum inventore provident a assumenda
+                            quae saepe fugiat odio.
+                        </p>
+                        <hr>
+                        <div class="reply-text">
+                            <div class="reply-span">
+                                <span class="count-replies">
+                                    Total replies: 2
+                                </span>
+
+                                <button class="reply-btn">
+                                    Replies
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </button>
+                            </div>
+                            <div class="hidden-content">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div> -->
+                    
         </div>
-    </div>
 </body>
 <script>
-    
-    document.querySelector('.reply-btn').addEventListener('click',()=>{
-       var container =  document.querySelector('.reply-container');
-      if(window.getComputedStyle(document.querySelector(".reply-container")).display === "none")
-       {
-           document.querySelector('.reply-container').style.display = "block";
-       }
-       else
-       {
-           document.querySelector('.reply-container').style.display = "none";
-       }
-    })
 
-    document.querySelector('.fa-thumbs-up').addEventListener('click',()=>{
-        document.querySelector('.fa-thumbs-up').style.color = "green";
-    })
-    document.querySelector('.fa-thumbs-down').addEventListener('click', () => {
-            document.querySelector('.fa-thumbs-down').style.color = "red";
-    })
+    document.querySelector('.nav-buttons').innerHTML = `<a href="/ask_question" class="register-links"> Ask Question </a>`;
+    var parent_content = ``;
+    var reply_content = ``;
+    var data = <%- JSON.stringify(data) %>
+     console.log(data);
+        data.forEach((question) => {
+            question.replies.forEach((reply)=>{
+                reply_content+=`       <div class="reply">
+                                        <article>
+                                           ${reply.replyText} 
+                                        </article>
+                                        <hr>
+                                        <div class="comment-btn">
+                                            <div class="feedback-container">
+                                                <div class="feedback">
+                                                    <i class="fa-solid fa-thumbs-up"></i>
+                                                    <span>6</span>
+                                                </div>
+                                                <div class="feedback">
+                                                    <i class="fa-solid fa-thumbs-down"></i>
+                                                    <span>3</span>
+                                                </div>
+                                            </div>
+                                            <h4>Replied by: ${reply.username}</h4>
+                                        </div>
+                                    </div>` 
+            })
+            parent_content+=`<div class="question">
+                             
+                        <p class="question-text">
+                            <span>Q.</span>
+                            ${question.questionText}
+                        </p>
+                        <hr>
+                        <div class="reply-text">
+                            <div class="reply-span">
+                                <span class="count-replies">
+                                    Total replies: ${question.replies.length}
+                                </span>
+
+                                <button class="reply-btn">
+                                    Replies
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </button>
+                            </div>
+                            <div class="reply-container">
+                                <a href="/reply" id="to-reply">
+                                    <i class="fa-solid fa-reply"></i>
+                                    <span> ${question._id} </span>
+                                    Reply
+                                </a>
+                                <div class="replies">
+
+                               ${reply_content}
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>`
+        })
+        document.querySelector('.questions').innerHTML+=parent_content;
+
+        
+            document.querySelector('.reply-btn').addEventListener('click', () => {
+                var container = document.querySelector('.reply-container');
+                if (window.getComputedStyle(document.querySelector(".reply-container")).display === "none") {
+                    document.querySelector('.reply-container').style.display = "block";
+                }
+                else {
+                    document.querySelector('.reply-container').style.display = "none";
+                }
+            })
+
+            document.querySelector('.fa-thumbs-up').addEventListener('click', () => {
+                document.querySelector('.fa-thumbs-up').style.color = "green";
+            })
+            document.querySelector('.fa-thumbs-down').addEventListener('click', () => {
+                document.querySelector('.fa-thumbs-down').style.color = "red";
+            })
+
+           
 </script>
+
 </html>

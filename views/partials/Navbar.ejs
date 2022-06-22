@@ -19,19 +19,8 @@
             <a href="/faqs">FAQs</a>
         </div>
         <div class="nav-buttons">
-            <button class="login-btn">LogIn</button>
-            <button class="signup-btn">SignUp</button>
+            <a href="/login" class="register-links">LogIn</a>
+            <a href = "/signup" class="register-links">SignUp</a>
         </div>
     </div>
 </nav>
-
-<script>
-    //functionality for login page
-    document.querySelector('.login-btn').addEventListener("click", () => {
-        document.querySelector('.form-login').style.display = "flex";
-    });
-
-     document.querySelector('.signup-btn').addEventListener("click", () => {
-            document.querySelector('.form-signup').style.display = "flex";
-        });
-</script>

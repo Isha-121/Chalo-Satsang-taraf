@@ -75,6 +75,7 @@
   background-color: #483d8b;
   border-radius: 7px;
   color:white;
+   text-decoration: none;
 }
 .reply-text .reply-container #to-reply:hover
 {
@@ -95,6 +96,7 @@
     color:white;
     border:0;
    transition: 0.3s all ease-in;
+  
 }
 .faq-container .questions .question .reply-text .reply-span .reply-btn:hover
 {
