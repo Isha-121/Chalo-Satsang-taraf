@@ -1,33 +1,34 @@
-<link rel="stylesheet" href="/css/new_question.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <div class="main-reply-container">
-<div class="ask-question-container">
+<link rel="stylesheet" href="/css/new_question.css" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+  integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<div class="main-reply-container">
+  <div class="ask-question-container">
     <i class="fa-solid fa-xmark xmark-reply"></i>
     <div class="guidelines">
-        <p>Your reply should be:</p>
-        <ul>
-            <li>Short and relevant to the question.</li>
-            <li>Should be unique.</li>
-            <li>Should not contain any bad language.</li>
-        </ul>
+      <p>Your reply should be:</p>
+      <ul>
+        <li>Short and relevant to the question.</li>
+        <li>Should be unique.</li>
+        <li>Should not contain any bad language.</li>
+      </ul>
     </div>
     <div class="question-box">
-        <div class="username">
-            Username
-        </div>
-        <form action="/reply" method="POST">
-            <textarea name="reply-text" placeholder="Reply here..."></textarea>
-            <input type="submit" value="POST">
-        </form>
+      <div class="username">Username</div>
+      <form action="/reply" method="POST">
+        <textarea name="reply-text" placeholder="Reply here..."></textarea>
+        <input type="submit" value="POST" />
+      </form>
     </div>
-</div>
+  </div>
 </div>
 <script>
-    document.querySelector('.xmark-reply').addEventListener('click', () => {
-         document.querySelector('.main-reply-container').style.display = "none";
-         document.querySelector('.faq-container').style.display = "block";
-       
-    })
+  document.querySelector(".xmark-reply").addEventListener("click", () => {
+    document.querySelector(".main-reply-container").style.display = "none";
+    document.querySelector(".faq-container").style.display = "flex";
+  });
 </script>
