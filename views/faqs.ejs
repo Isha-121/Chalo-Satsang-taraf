@@ -14,6 +14,8 @@
 
 <body>
     <%- include("./partials/Navbar.ejs") %>
+    <%- include("./partials/new_question.ejs") %>
+    <%- include("./partials/new_reply.ejs") %>
         <div class="faq-container">
             <h2>
                 Discussion Forum
@@ -21,66 +23,15 @@
             
                 <div class="questions">
                     
-                    <!-- <div class="question">
-
-                        <p class="question-text">
-                            <span>Q.</span>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, aspernatur minus! Sint
-                            molestiae quaerat vel
-                            repudiandae nam ad, similique sit nobis vitae voluptatum inventore provident a assumenda
-                            quae saepe fugiat odio.
-                        </p>
-                        <hr>
-                        <div class="reply-text">
-                            <div class="reply-span">
-                                <span class="count-replies">
-                                    Total replies: 2
-                                </span>
-
-                                <button class="reply-btn">
-                                    Replies
-                                    <i class="fa-solid fa-caret-down"></i>
-                                </button>
-                            </div>
-                            <div class="hidden-content">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="question">
-
-                        <p class="question-text">
-                            <span>Q.</span>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, aspernatur minus! Sint
-                            molestiae quaerat vel
-                            repudiandae nam ad, similique sit nobis vitae voluptatum inventore provident a assumenda
-                            quae saepe fugiat odio.
-                        </p>
-                        <hr>
-                        <div class="reply-text">
-                            <div class="reply-span">
-                                <span class="count-replies">
-                                    Total replies: 2
-                                </span>
-
-                                <button class="reply-btn">
-                                    Replies
-                                    <i class="fa-solid fa-caret-down"></i>
-                                </button>
-                            </div>
-                            <div class="hidden-content">
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div> -->
-                    
         </div>
 </body>
 <script>
 
-    document.querySelector('.nav-buttons').innerHTML = `<a href="/ask_question" class="register-links"> Ask Question </a>`;
+    document.querySelector('.nav-buttons').innerHTML = `<button class="register-links"> Ask Question </button>`;
+    document.querySelector('.register-links').addEventListener('click',()=>{
+        document.querySelector('.faq-container').style.display = "none";
+        document.querySelector('.main-question-container').style.display="block";
+    });
     var parent_content = ``;
     var reply_content = ``;
     var data = <%- JSON.stringify(data) %>
@@ -159,6 +110,10 @@
             })
             document.querySelector('.fa-thumbs-down').addEventListener('click', () => {
                 document.querySelector('.fa-thumbs-down').style.color = "red";
+            })
+            document.querySelector('#to-reply').addEventListener('click',()=>{
+                document.querySelector('.faq-container').style.display="none";
+                document.querySelector('.main-reply-container').style.display="block"
             })
 
            

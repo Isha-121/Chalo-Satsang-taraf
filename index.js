@@ -131,7 +131,7 @@ app.get('/api/event-details', (req, res) => {
 app.get('/events', (req, res) => {
     res.render("events", { data: data });
 })
-app.get('/faqs',isLoggedIn, function(req, res) {
+app.get('/faqs', function(req, res) {
    Questions.find((err,doc)=>{
     if(!err)
     {

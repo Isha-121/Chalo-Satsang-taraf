@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/css/new_question.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <div class="main-question-container">
+<div class="ask-question-container">
+    <i class="fa-solid fa-xmark xmark-question"></i>
+    <div class="guidelines">
+        <p>Tips for asking question</p>
+        <ul>
+            <li> Make sure your question has not been asked already.</li>
+            <li> The question should be short and to the point.</li>
+            <li> Be clear of your words.</li>
+        </ul>
+    </div>
+    <div class="question-box">
+        <div class="username">
+            Username
+        </div>
+        <form action="/ask_question" method="POST">
+            <textarea name="question" placeholder="Ask your question here.."></textarea>
+            <input type="submit" value="POST">
+        </form>
+    </div>
+</div>
+</div>
+<script>
+    document.querySelector('.xmark-question').addEventListener('click', () => {
+        document.querySelector('.main-question-container').style.display="none";
+         document.querySelector('.faq-container').style.display = "block";
+    })
+</script>
