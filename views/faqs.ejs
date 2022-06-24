@@ -77,15 +77,14 @@
                                 </button>
                             </div>
                             <div class="reply-container">
-                                <a href="/reply" id="to-reply">
+                                <button id="to-reply">
                                     <i class="fa-solid fa-reply"></i>
                                     <span> ${question._id} </span>
                                     Reply
-                                </a>
+                                </button>
                                 <div class="replies">
 
                                ${reply_content}
-
 
                                 </div>
                             </div>
@@ -105,17 +104,16 @@
                 }
             })
 
-            document.querySelector('.fa-thumbs-up').addEventListener('click', () => {
-                document.querySelector('.fa-thumbs-up').style.color = "green";
-            })
-            document.querySelector('.fa-thumbs-down').addEventListener('click', () => {
-                document.querySelector('.fa-thumbs-down').style.color = "red";
-            })
-            document.querySelector('#to-reply').addEventListener('click',()=>{
+            // document.querySelector('.fa-thumbs-up').addEventListener('click', () => {
+            //     document.querySelector('.fa-thumbs-up').style.color = "green";
+            // })
+            // document.querySelector('.fa-thumbs-down').addEventListener('click', () => {
+            //     document.querySelector('.fa-thumbs-down').style.color = "red";
+            // })
+          document.querySelector('#to-reply').addEventListener('click',()=>{
                 document.querySelector('.faq-container').style.display="none";
                 document.querySelector('.main-reply-container').style.display="block"
             })
-
            
 </script>
 
