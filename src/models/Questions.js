@@ -9,7 +9,10 @@ const QuestionSchema = new mongoose.Schema({
         unique:true,
     },
     replies:
-    [{username:String,replyText:String}]
+    [{username:{
+        type: String},
+     replyText:{type: String,
+    required:true}}]
 })
 
 module.exports = new mongoose.model("question",QuestionSchema);

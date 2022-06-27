@@ -34,8 +34,9 @@
     });
     var parent_content = ``;
     var reply_content = ``;
+   // console.log(data);
     var data = <%- JSON.stringify(data) %>
-     console.log(data);
+    // console.log(data);
         data.forEach((question) => {
             question.replies.forEach((reply)=>{
                 reply_content+=`       <div class="reply">
@@ -77,9 +78,9 @@
                                 </button>
                             </div>
                             <div class="reply-container">
-                                <button id="to-reply">
+                                <button id="to-reply" onClick="func('${question._id}')">
                                     <i class="fa-solid fa-reply"></i>
-                                    <span> ${question._id} </span>
+                                    
                                     Reply
                                 </button>
                                 <div class="replies">
@@ -110,6 +111,23 @@
             // document.querySelector('.fa-thumbs-down').addEventListener('click', () => {
             //     document.querySelector('.fa-thumbs-down').style.color = "red";
             // })
+            function func(id)
+            {
+                fetch("/post_reply", {
+                    method: "post",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body:JSON.stringify({
+                        id: id
+                    })
+                })
+                    .then((response) => {
+                        //do something awesome that makes the world a better place
+                    });
+            }
+            
           document.querySelector('#to-reply').addEventListener('click',()=>{
                 document.querySelector('.faq-container').style.display="none";
                 document.querySelector('.main-reply-container').style.display="block"

@@ -138,8 +138,9 @@ app.get("/api/event-details", (req, res) => {
 app.get("/events", (req, res) => {
   res.render("events", { data: data });
 });
-app.get("/faqs", function (req, res) {
+app.get("/faqs",isLoggedIn, function (req, res) {
   Questions.find((err, doc) => {
+   // console.log(doc);
     if (!err) {
       res.render("faqs", { data: doc });
     } else {
@@ -147,10 +148,11 @@ app.get("/faqs", function (req, res) {
     }
   });
 });
-app.get("/ask_question", isLoggedIn, (req, res) => {
-  res.render("ask_question");
-});
+// app.get("/ask_question", isLoggedIn, (req, res) => {
+//   res.render("ask_question");
+// });
 app.post("/ask_question", async (req, res) => {
+  //console.log(req.body);
   try {
     const questionText = req.body.question;
     const NewQuestion = new Questions({
@@ -158,15 +160,52 @@ app.post("/ask_question", async (req, res) => {
       questionText: questionText,
     });
     const question = await NewQuestion.save();
-    console.log(question);
-    res.status("201").render("faqs");
+  //  console.log(question);
+    res.status("201").redirect("faqs");
   } catch (e) {
     res.status("401").send(e);
   }
 });
-app.get("/reply", isLoggedIn, (req, res) => {
-  res.render("reply");
+app.post("/post_reply",  async(req, res) => {
+ 
+  try {
+    //console.log(req.body.id);
+    const replyText = req.body.reply;
+    const id = req.body.id;
+    const reply =  {
+      username: req.user.username,replyText:replyText
+    };
+    //console.log(reply);
+   // console.log(id);
+  Questions.findOneAndUpdate(
+      { _id: id},
+      { $push: { replies : reply} },
+      (err,docs)=>{
+        if(err)
+        console.log(err);
+        else
+        console.log(docs);
+      }
+      //{new:true}
+    )
+    console.log(newreply);
+    //console.log(req.body.id);
+    //console.log(replyText);
+    // const NewQuestion = new Questions({
+    //   username: req.user.username,
+    //   questionText: questionText,
+    // });
+    // const question = await NewQuestion.save();
+    // console.log(question);
+
+    res.status("201").redirect("faqs");
+  } catch (e) {
+    res.status("401").send(e);
+  }
 });
+// app.get("/reply", isLoggedIn, (req, res) => {
+//   res.render("reply");
+// });
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

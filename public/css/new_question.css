@@ -7,7 +7,7 @@
 .main-question-container,
 .main-reply-container {
   position: absolute;
-  height: 50vh;
+  height: 60vh;
   width: 100vw;
   display: flex;
   align-items: center;
