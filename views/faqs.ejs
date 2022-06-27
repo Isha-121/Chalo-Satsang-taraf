@@ -113,8 +113,8 @@
             // })
             function func(id)
             {
-                fetch("/post_reply", {
-                    method: "post",
+                fetch("/faqs", {
+                    method: "POST",
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
@@ -128,7 +128,7 @@
                     });
             }
             
-          document.querySelector('#to-reply').addEventListener('click',()=>{
+          document.querySelectorAll('#to-reply').addEventListener('click',()=>{
                 document.querySelector('.faq-container').style.display="none";
                 document.querySelector('.main-reply-container').style.display="block"
             })

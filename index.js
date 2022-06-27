@@ -23,8 +23,8 @@ app.set("views", path.join(__dirname, "views"));
 
 //serve static files such as images, CSS files, and JavaScript files,
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(session({ secret: "SECRET" }));
 app.use(passport.session());
@@ -138,15 +138,19 @@ app.get("/api/event-details", (req, res) => {
 app.get("/events", (req, res) => {
   res.render("events", { data: data });
 });
-app.get("/faqs",isLoggedIn, function (req, res) {
+app.get("/faqs", isLoggedIn, function (req, res) {
   Questions.find((err, doc) => {
-   // console.log(doc);
+    // console.log(doc);
     if (!err) {
       res.render("faqs", { data: doc });
     } else {
       console.log(err);
     }
   });
+});
+var id;
+app.post("/faqs", isLoggedIn, (req, res) => {
+  id = req.body.id;
 });
 // app.get("/ask_question", isLoggedIn, (req, res) => {
 //   res.render("ask_question");
@@ -160,44 +164,29 @@ app.post("/ask_question", async (req, res) => {
       questionText: questionText,
     });
     const question = await NewQuestion.save();
-  //  console.log(question);
+    //  console.log(question);
     res.status("201").redirect("faqs");
   } catch (e) {
     res.status("401").send(e);
   }
 });
-app.post("/post_reply",  async(req, res) => {
- 
+app.post("/post_reply", (req, res) => {
   try {
-    //console.log(req.body.id);
-    const replyText = req.body.reply;
-    const id = req.body.id;
-    const reply =  {
-      username: req.user.username,replyText:replyText
+    console.log("id is: ", id);
+    const reply = {
+      username: req.user.username,
+      replyText: req.body.reply,
     };
-    //console.log(reply);
-   // console.log(id);
-  Questions.findOneAndUpdate(
-      { _id: id},
-      { $push: { replies : reply} },
-      (err,docs)=>{
-        if(err)
-        console.log(err);
-        else
-        console.log(docs);
+    Questions.findOneAndUpdate(
+      { _id: id },
+      { $push: { replies: reply } },
+      null,
+      (err, docs) => {
+        if (err) console.log(err);
+        else console.log("current docs: ", docs);
       }
       //{new:true}
-    )
-    console.log(newreply);
-    //console.log(req.body.id);
-    //console.log(replyText);
-    // const NewQuestion = new Questions({
-    //   username: req.user.username,
-    //   questionText: questionText,
-    // });
-    // const question = await NewQuestion.save();
-    // console.log(question);
-
+    );
     res.status("201").redirect("faqs");
   } catch (e) {
     res.status("401").send(e);
