@@ -40,8 +40,6 @@ app.use(
     saveUninitialized: false,
   })
 );
-// const {home} = require('./models/index');
-// app.use('/',home);
 app.get("/", (req, res) => {
   res.render("Home");
 });
@@ -148,9 +146,10 @@ app.get("/faqs",isLoggedIn, function (req, res) {
     }
   });
 });
-// app.get("/ask_question", isLoggedIn, (req, res) => {
-//   res.render("ask_question");
-// });
+var id;
+app.post("/faqs",(req,res)=>{
+  id = req.body.id;
+})
 app.post("/ask_question", async (req, res) => {
   //console.log(req.body);
   try {
@@ -166,46 +165,28 @@ app.post("/ask_question", async (req, res) => {
     res.status("401").send(e);
   }
 });
-app.post("/post_reply",  async(req, res) => {
- 
+app.post("/post_reply", (req, res) => {
   try {
-    //console.log(req.body.id);
-    const replyText = req.body.reply;
-    const id = req.body.id;
     const reply =  {
-      username: req.user.username,replyText:replyText
+      username: req.user.username,replyText:req.body.reply
     };
-    //console.log(reply);
-   // console.log(id);
+    console.log(reply);
+    console.log("This is id: ",id);
   Questions.findOneAndUpdate(
       { _id: id},
-      { $push: { replies : reply} },
+     { $push: { replies:  reply } },
       (err,docs)=>{
         if(err)
         console.log(err);
         else
         console.log(docs);
       }
-      //{new:true}
     )
-    console.log(newreply);
-    //console.log(req.body.id);
-    //console.log(replyText);
-    // const NewQuestion = new Questions({
-    //   username: req.user.username,
-    //   questionText: questionText,
-    // });
-    // const question = await NewQuestion.save();
-    // console.log(question);
-
-    res.status("201").redirect("faqs");
+  res.status("201").redirect("faqs");
   } catch (e) {
     res.status("401").send(e);
   }
 });
-// app.get("/reply", isLoggedIn, (req, res) => {
-//   res.render("reply");
-// });
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

@@ -38,6 +38,7 @@
     var data = <%- JSON.stringify(data) %>
     // console.log(data);
         data.forEach((question) => {
+            reply_content = ``;
             question.replies.forEach((reply)=>{
                 reply_content+=`       <div class="reply">
                                         <article>
@@ -94,16 +95,25 @@
         })
         document.querySelector('.questions').innerHTML+=parent_content;
 
-        
-            document.querySelector('.reply-btn').addEventListener('click', () => {
-                var container = document.querySelector('.reply-container');
-                if (window.getComputedStyle(document.querySelector(".reply-container")).display === "none") {
-                    document.querySelector('.reply-container').style.display = "block";
-                }
-                else {
-                    document.querySelector('.reply-container').style.display = "none";
-                }
-            })
+        document.querySelectorAll('.reply-btn').forEach((element,key)=>{
+           element.addEventListener('click',()=>{
+               if (window.getComputedStyle(document.querySelectorAll(".reply-container")[key]).display === "none") {
+                   document.querySelectorAll('.reply-container')[key].style.display = "block";
+               }
+               else {
+                   document.querySelectorAll('.reply-container')[key].style.display = "none";
+               }
+           })
+        })
+            // document.querySelectorAll('.reply-btn').addEventListener('click', () => {
+            //     var container = document.querySelector('.reply-container');
+            //     if (window.getComputedStyle(document.querySelector(".reply-container")).display === "none") {
+            //         document.querySelector('.reply-container').style.display = "block";
+            //     }
+            //     else {
+            //         document.querySelector('.reply-container').style.display = "none";
+            //     }
+            // })
 
             // document.querySelector('.fa-thumbs-up').addEventListener('click', () => {
             //     document.querySelector('.fa-thumbs-up').style.color = "green";
@@ -113,7 +123,7 @@
             // })
             function func(id)
             {
-                fetch("/post_reply", {
+                fetch("/faqs", {
                     method: "post",
                     headers: {
                         'Accept': 'application/json',
@@ -127,11 +137,13 @@
                         //do something awesome that makes the world a better place
                     });
             }
-            
-          document.querySelector('#to-reply').addEventListener('click',()=>{
-                document.querySelector('.faq-container').style.display="none";
-                document.querySelector('.main-reply-container').style.display="block"
+        document.querySelectorAll('#to-reply').forEach((ele,key)=>{
+            ele.addEventListener('click',()=>{
+                 document.querySelector('.faq-container').style.display = "none";
+                document.querySelector('.main-reply-container').style.display = "block"
             })
+        })
+         
            
 </script>
 
