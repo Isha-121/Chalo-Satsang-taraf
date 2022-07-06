@@ -3,7 +3,9 @@ const path = require("path");
 const fs = require("fs");
 const { resourceLimits } = require("worker_threads");
 const { data } = require("./data/data");
+const { paths } = require("./data/paths");
 const bodyParser = require("body-parser");
+var cookieParser = require('cookie-parser');
 const port = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
@@ -14,6 +16,7 @@ const passport_local_mongoose = require("passport-local-mongoose");
 const User = require("./src/models/user");
 const Questions = require("./src/models/Questions");
 var session = require("express-session");
+var flash = require('connect-flash');
 var alert = require("alert");
 require("./src/db/conn");
 
@@ -23,6 +26,7 @@ app.set("views", path.join(__dirname, "views"));
 
 //serve static files such as images, CSS files, and JavaScript files,
 app.use(express.static("public"));
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(passport.initialize());
@@ -35,11 +39,13 @@ passport.use(new LocalStrategy(User.authenticate()));
 
 app.use(
   require("express-session")({
-    secret: "Miss white is my cat",
+    secret: "Shrinathji",
     resave: false,
     saveUninitialized: false,
+    cookie: { secure: false, maxAge: 86400000 },
   })
 );
+app.use(flash());
 app.get("/", (req, res) => {
   res.render("Home");
 });
@@ -47,10 +53,13 @@ app.get("/pathavali", (req, res) => {
   res.render("pathavali");
 });
 app.get("/signup", (req, res) => {
+  //console.log(req.body);
   res.render("signup");
 });
 app.get("/login", (req, res) => {
-  res.render("login");
+ 
+  res.render('login.ejs',{message:req.flash('Invalid Login Credentials')});
+  console.log(req.body);
 });
 app.post("/signup", (req, res, next) => {
   User.register(
@@ -64,8 +73,8 @@ app.post("/signup", (req, res, next) => {
         res.statusCode = 500;
         res.setHeader("Content-Type", "application/json");
         res.json({
-          err: err,
-        });
+          err:err
+        })
       } else {
         passport.authenticate("local")(req, res, () => {
           User.findOne(
@@ -90,27 +99,14 @@ app.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/faqs",
-    failureRedirect: "/login",
+    failureFlash: true,
+     failureRedirect: "/login"
   }),
-  function (req, res) {}
+  function (req,res) { 
+  }
 );
-
-function read() {
-  // const data = "";
-  fs.readFileSync("./public/assets/Path/temp.txt", "UTF-8", (err, data) => {
-    if (err) console.log(err);
-    else {
-      console.log(data);
-      return data;
-    }
-  });
-}
-
 app.get("/pathavali/nitya_niyam_path", (req, res) => {
-  fs.readFile("./public/assets/Path/temp.txt", "utf8", (error, data) => {
-    console.log(data);
-    res.render("Nitya_niyam_path", { data });
-  });
+  res.render("Nitya_niyam_path", { data: paths });
 });
 app.get("/pathavali/8_sama_na_darshan", (req, res) => {
   res.render("8_sama_na_darshan");
@@ -136,9 +132,9 @@ app.get("/api/event-details", (req, res) => {
 app.get("/events", (req, res) => {
   res.render("events", { data: data });
 });
-app.get("/faqs",isLoggedIn, function (req, res) {
+app.get("/faqs", isLoggedIn, function (req, res) {
   Questions.find((err, doc) => {
-   // console.log(doc);
+    // console.log(doc);
     if (!err) {
       res.render("faqs", { data: doc });
     } else {
@@ -147,7 +143,7 @@ app.get("/faqs",isLoggedIn, function (req, res) {
   });
 });
 var id;
-app.post("/faqs",(req,res)=>{
+app.post("/faqs", (req, res) => {
   id = req.body.id;
 })
 app.post("/ask_question", async (req, res) => {
@@ -159,7 +155,6 @@ app.post("/ask_question", async (req, res) => {
       questionText: questionText,
     });
     const question = await NewQuestion.save();
-  //  console.log(question);
     res.status("201").redirect("faqs");
   } catch (e) {
     res.status("401").send(e);
@@ -167,22 +162,22 @@ app.post("/ask_question", async (req, res) => {
 });
 app.post("/post_reply", (req, res) => {
   try {
-    const reply =  {
-      username: req.user.username,replyText:req.body.reply
+    const reply = {
+      username: req.user.username, replyText: req.body.reply
     };
     console.log(reply);
-    console.log("This is id: ",id);
-  Questions.findOneAndUpdate(
-      { _id: id},
-     { $push: { replies:  reply } },
-      (err,docs)=>{
-        if(err)
-        console.log(err);
+    console.log("This is id: ", id);
+    Questions.findOneAndUpdate(
+      { _id: id },
+      { $push: { replies: reply } },
+      (err, docs) => {
+        if (err)
+          console.log(err);
         else
-        console.log(docs);
+          console.log(docs);
       }
     )
-  res.status("201").redirect("faqs");
+    res.status("201").redirect("faqs");
   } catch (e) {
     res.status("401").send(e);
   }
@@ -197,3 +192,6 @@ function isLoggedIn(req, res, next) {
   }
   res.redirect("/login");
 }
+app.get('*', (req, res) => {
+  return res.render('error');
+})

@@ -3,12 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .faq-container {
   display: flex;
   min-height: 100vh;
   align-items: center;
   flex-direction: column;
 }
+
 .faq-container h2 {
   font-size: 2em;
   font-weight: 600;
@@ -20,10 +22,12 @@
   -webkit-text-fill-color: transparent;
   padding-top: 0.6em;
 }
+
 .faq-container .questions {
   width: 90%;
   padding: 1em 2em;
 }
+
 .faq-container .questions .question {
   border: 2px solid black;
   border-radius: 5px;
@@ -31,6 +35,7 @@
   background-color: #e5e4e2;
   margin-top: 2em;
 }
+
 .faq-container .questions .question .question-text {
   font-size: 1.3em;
   font-weight: 500;
@@ -38,6 +43,7 @@
   padding: 1em 2em;
   /* background-color: #f5af19; */
 }
+
 .faq-container .questions .question .question-text span {
   font-weight: 700;
   font-size: 1.3em;
@@ -50,10 +56,12 @@
   background-color: #b9f2ff;
   padding: 0.5em 1em;
 }
+
 .reply-container {
   padding-top: 0.5em;
   display: none;
 }
+
 .reply-text .reply-container #to-reply {
   float: right;
   margin-right: 2%;
@@ -67,13 +75,16 @@
   color: white;
   text-decoration: none;
 }
+
 .reply-text .reply-container #to-reply:hover {
   cursor: pointer;
 }
+
 .faq-container .questions .question .reply-text .reply-span span {
   font-size: 1.2em;
   font-weight: 600;
 }
+
 .faq-container .questions .question .reply-text .reply-span .reply-btn {
   font-size: 1.1em;
   font-weight: 600;
@@ -85,6 +96,7 @@
   border: 0;
   transition: 0.3s all ease-in;
 }
+
 .faq-container .questions .question .reply-text .reply-span .reply-btn:hover {
   cursor: pointer;
   color: #fff;
@@ -92,21 +104,26 @@
   border-radius: 5px;
   padding: 0.25em 0.5em;
 }
+
 .faq-container .questions .question .replies {
   width: 100%;
   padding: 1em 2em;
 }
+
 .reply {
   border-bottom: 1.5px solid #333;
   padding-bottom: 1em;
 }
+
 .reply article {
   padding: 1em 5%;
 }
+
 .reply hr {
   width: 90%;
   margin: auto;
 }
+
 .reply .comment-btn {
   width: 90%;
   display: flex;
@@ -115,6 +132,7 @@
   margin: auto;
   padding-top: 0.3em;
 }
+
 .reply .comment-btn .feedback-container {
   display: flex;
   width: 10%;

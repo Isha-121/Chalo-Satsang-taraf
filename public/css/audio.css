@@ -6,35 +6,33 @@
 }
 body
 {
-background: #FFEEEE;  /* fallback for old browsers */
-background: -webkit-linear-gradient(135deg, #DDEFBB, #FFEEEE,#DDEFBB);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(135deg, #DDEFBB, #FFEEEE,#DDEFBB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+background-color: #f0e68c;
 min-height:100vh;
 }
 .audio-container
 {
     display: flex;
-     justify-content: center;
-    width: 100vw;
+    flex-direction: column;
+    align-items: center;
     padding: 1em 0;
 }
 .audio-container table
 {
-    width:80%;
-    border: 2px solid black;
+    width: 80%;
+        border: 2px solid black;
+        margin-top: 1em;
+        border-bottom: 1pt solid black;
+        border-collapse: collapse;
 }
 .audio-container table .table-head tr
 {
-    background-color: #ff4f00 !important;
-    font-size: 2em;
+background-color: #e1a95f;
+    font-size: 1.5em;
     font-weight: 700;
-    height:fit-content;
 }
 .audio-container table thead th
 {
-     border:2px solid grey;
-     padding:0.3em 0.1em;
+    padding: 0.3em 0.1em;
 }
 .audio-container table thead tr .serial-no,
 .audio-container table tr .serial-no
@@ -44,21 +42,22 @@ min-height:100vh;
 }
 .audio-container table tr
 {
-    height:fit-content;
-    font-size: 1.3em;
-    font-weight: 600;
+    height: fit-content;
+        font-size: 1.2em;
+        font-weight: 600;
+        border-bottom: 1pt solid black;
 }
-.audio-container table tr:nth-child(even) 
+.audio-container table .inside-row:nth-child(odd) 
 {
-    background-color: #F2994A;
+    background-color: #c0c0c0;
 }
-.audio-container table tr:nth-child(odd) 
+.audio-container table .inside-row:nth-child(even) 
 {
-    background-color: #F2C94C;
+    background-color: #fff;
 }
 .audio-container table tr td
 {
-  padding: 1em 0.2em;
+  padding: 0.5em 0.5em;
 }
 .audio-container table tr .player
 {
@@ -81,6 +80,7 @@ min-height:100vh;
 .audio-container table tr td .audios i
 {
     font-size: 1.5em;
+    cursor:pointer;
 }
 .audio-container table tr td .audios .fa-play
 {

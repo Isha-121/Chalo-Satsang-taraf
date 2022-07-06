@@ -13,7 +13,7 @@ footer
     background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     display: flex;
     justify-content: space-around;
-    width:100vw;
+    /* width:100vw; */
     position: relative;
     bottom:0;
      align-items: center; 
