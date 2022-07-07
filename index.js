@@ -5,7 +5,7 @@ const { resourceLimits } = require("worker_threads");
 const { data } = require("./data/data");
 const { paths } = require("./data/paths");
 const bodyParser = require("body-parser");
-var cookieParser = require('cookie-parser');
+var cookieParser = require("cookie-parser");
 const port = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
@@ -16,7 +16,7 @@ const passport_local_mongoose = require("passport-local-mongoose");
 const User = require("./src/models/user");
 const Questions = require("./src/models/Questions");
 var session = require("express-session");
-var flash = require('connect-flash');
+var flash = require("connect-flash");
 var alert = require("alert");
 require("./src/db/conn");
 
@@ -46,6 +46,7 @@ app.use(
   })
 );
 app.use(flash());
+
 app.get("/", (req, res) => {
   res.render("Home");
 });
@@ -57,9 +58,9 @@ app.get("/signup", (req, res) => {
   res.render("signup");
 });
 app.get("/login", (req, res) => {
- 
-  res.render('login.ejs',{message:req.flash('Invalid Login Credentials')});
-  console.log(req.body);
+  // console.log(req.session.messages);
+  res.render("login.ejs", { message: req.session.messages });
+  // console.log(req.body);
 });
 app.post("/signup", (req, res, next) => {
   User.register(
@@ -73,8 +74,8 @@ app.post("/signup", (req, res, next) => {
         res.statusCode = 500;
         res.setHeader("Content-Type", "application/json");
         res.json({
-          err:err
-        })
+          err: err,
+        });
       } else {
         passport.authenticate("local")(req, res, () => {
           User.findOne(
@@ -99,11 +100,9 @@ app.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/faqs",
-    failureFlash: true,
-     failureRedirect: "/login"
-  }),
-  function (req,res) { 
-  }
+    failureRedirect: "/login",
+    failureMessage: "Invalid Login Credentials",
+  })
 );
 app.get("/pathavali/nitya_niyam_path", (req, res) => {
   res.render("Nitya_niyam_path", { data: paths });
@@ -145,7 +144,7 @@ app.get("/faqs", isLoggedIn, function (req, res) {
 var id;
 app.post("/faqs", (req, res) => {
   id = req.body.id;
-})
+});
 app.post("/ask_question", async (req, res) => {
   //console.log(req.body);
   try {
@@ -163,7 +162,8 @@ app.post("/ask_question", async (req, res) => {
 app.post("/post_reply", (req, res) => {
   try {
     const reply = {
-      username: req.user.username, replyText: req.body.reply
+      username: req.user.username,
+      replyText: req.body.reply,
     };
     console.log(reply);
     console.log("This is id: ", id);
@@ -171,12 +171,10 @@ app.post("/post_reply", (req, res) => {
       { _id: id },
       { $push: { replies: reply } },
       (err, docs) => {
-        if (err)
-          console.log(err);
-        else
-          console.log(docs);
+        if (err) console.log(err);
+        else console.log(docs);
       }
-    )
+    );
     res.status("201").redirect("faqs");
   } catch (e) {
     res.status("401").send(e);
@@ -192,6 +190,6 @@ function isLoggedIn(req, res, next) {
   }
   res.redirect("/login");
 }
-app.get('*', (req, res) => {
-  return res.render('error');
-})
+app.get("*", (req, res) => {
+  return res.render("error");
+});
