@@ -46,6 +46,16 @@ const data = [
                            details:`This is the tenth day of bright Jeth month. The clothing of Shri Thakorji is of sandalwood and shringar are of diamonds.This Utsav is known as Shri Gangaji – Shri Yamunaji Utsav. On this day Shringar can be offered to Shri Yamunaji also.`
                        }
                    ]
+               },
+               {
+                   month: "July",
+                   dates: [
+                       {
+                           date: "Fri June 10 2022",
+                           event: "Ganga dashmi (ગંગા દશમી)",
+                           details: `This is the tenth day of bright Jeth month. The clothing of Shri Thakorji is of sandalwood and shringar are of diamonds.This Utsav is known as Shri Gangaji – Shri Yamunaji Utsav. On this day Shringar can be offered to Shri Yamunaji also.`
+                       }
+                   ]
                }
            ]
 

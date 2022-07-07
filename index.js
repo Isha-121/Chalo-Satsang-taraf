@@ -56,6 +56,7 @@ app.get("/pathavali", (req, res) => {
 app.get("/signup", (req, res) => {
   //console.log(req.body);
   res.render("signup");
+  console.log(req.body);
 });
 app.get("/login", (req, res) => {
   // console.log(req.session.messages);
@@ -74,7 +75,8 @@ app.post("/signup", (req, res, next) => {
         res.statusCode = 500;
         res.setHeader("Content-Type", "application/json");
         res.json({
-          err: err,
+          success:false,
+          status:"invalid"
         });
       } else {
         passport.authenticate("local")(req, res, () => {
@@ -87,8 +89,8 @@ app.post("/signup", (req, res, next) => {
               res.setHeader("Content-Type", "application/json");
               res.json({
                 success: true,
-                status: "Registration Successful!",
               });
+              res.redirect('/');
             }
           );
         });
@@ -106,6 +108,12 @@ app.post(
 );
 app.get("/pathavali/nitya_niyam_path", (req, res) => {
   res.render("Nitya_niyam_path", { data: paths });
+});
+app.get("/pathavali/bhajan",(req,res)=>{
+  res.render("bhajan", {data:paths});
+});
+app.get("/pathavali/kirtan", (req, res) => {
+  res.render("kirtan", { data: paths });
 });
 app.get("/pathavali/8_sama_na_darshan", (req, res) => {
   res.render("8_sama_na_darshan");

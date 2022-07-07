@@ -6,13 +6,12 @@
 }
 .video-container
 {
-    width:100vw;
     display:flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap:2em;
-    background-color: #DDEFBB;
+    background-color: #f0e68c;
     padding-bottom: 2em;
 }
 .video-container h2

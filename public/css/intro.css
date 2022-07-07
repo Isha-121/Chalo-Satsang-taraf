@@ -29,7 +29,7 @@
 background: -webkit-linear-gradient(to right, #BD3F32, #CB356B,#BD3F32,#CB356B,#BD3F32, #CB356B,#BD3F32,#CB356B);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #BD3F32, #CB356B,#BD3F32,#CB356B,#BD3F32, #CB356B,#BD3F32,#CB356B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
    cursor:pointer;
-    transition: all 7s ease-in-out;
+    transition: all 4s ease-in-out;
     z-index:2;
 }
 .curtain .text
@@ -38,7 +38,7 @@ background: linear-gradient(to right, #BD3F32, #CB356B,#BD3F32,#CB356B,#BD3F32, 
    position: absolute;
    width: 100vw;
    min-height: 100vh;
-   background-color: #DDEFBB;
+   background-color: #f0e68c;
 }
 .curtain .text .intro
 {
@@ -54,14 +54,6 @@ background: linear-gradient(to right, #BD3F32, #CB356B,#BD3F32,#CB356B,#BD3F32, 
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
 }
-/* .curtain .left-curtain
-{
-    transform: translateX(-100%);
-}
-.curtain .right-curtain
-{
-    transform: translateX(100%);
-}  */
 .curtain .text .image
 {
     display: flex;
@@ -83,19 +75,14 @@ figure figcaption
 .curtain .text .content
 {
      padding: 1em 2em;
-     font-size: 1.3em;
+     font-size: 1.1em;
      color: black;
-     width: 60%;
+     width: 80%;
      margin:auto;
 }
 .curtain .text .content h2
 {
-    text-align: center;
-        margin: 1em 0;
-        font-size: 1.5em;
-        background: #780206;
-        background: -webkit-linear-gradient(to right, #061161, #780206);
-        background: linear-gradient(to right, #061161, #780206);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        margin: 1em 0 0.5em 0;
+        font-size: 1.2em;
+        color: #780206;
 }

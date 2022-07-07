@@ -67,6 +67,36 @@
     document.querySelector('#selected-date').innerHTML = `${month_option} ${year_option}`;
      
     var data = <%- JSON.stringify(data) %>
+        data.forEach((years) => {
+            years.years.forEach((month) => {
+                month.months.forEach((date) => {
+                    // console.log(this.options[this.value].innerHTML)
+                    if (date.month.substr(0,3) === month_option) {
+                        parent_content = ``;
+                        date.dates.forEach((ele) => {
+                            parent_content += `<div class="data-content">
+                        <div class="left-content">
+                            <div class="date">
+                                ${ele.date.split(" ")[2]} </div>
+                            <div class=" week-day">
+                                ${ele.date.split(" ")[0]}</div>
+                        </div>
+                        <div class=" right-content">
+                            <h3 class="title">
+                                ${ele.event}
+                            </h3>
+                            <p class="details">
+                                ${ele.details}
+                            </p>
+                        </div>
+                    </div>`;
+                        });
+                    }
+
+                });
+            });
+        });
+    document.querySelector(".content").innerHTML += parent_content;
     document.getElementById('month').addEventListener('change', function () {
         //console.log(this);
        // var parent_content = ``;
