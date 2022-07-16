@@ -121,9 +121,6 @@ app.get("/pathavali/8_sama_na_darshan", (req, res) => {
 app.get("/pathavali/introduction", (req, res) => {
   res.render("introduction");
 });
-app.get("/audio", (req, res) => {
-  res.render("Audio");
-});
 app.get("/e-books", (req, res) => {
   res.render("ebooks");
 });
