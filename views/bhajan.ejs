@@ -32,72 +32,87 @@
         </div>
 </body>
 <script>
-    var data = <%- JSON.stringify(data) %>
-    //console.log(data);
-   var content = ``;
+    var data = <% - JSON.stringify(data) %>
+            var content = ``;
     var child_content = ``;
     data.forEach((path, key) => {
         child_content = ``;
         path.text.forEach((line) => {
             child_content += `  <div class="lines">
-                           ${line}
-                        </div>`
+                                    ${line}
+                                 </div>`
         })
         content += `<tr class="inside-row">
-                <td class="serial-no">${path.id}.</td>
-                <td class="player">
-                    <h3 class="title"> 
-                        ${path.name} 
-                        <div class="audios">
-                        <audio src="/assets/Audios/Chatuh_shloki.ogg"> </audio>
-                        <i class="fa-solid fa-play"></i>
-                    </div>
-                        </h3>
-                    <div class="hidden">
-                       ${child_content}
-                    </div>
-                </td>
-            </tr>`
+                         <td class="serial-no">${path.id}.</td>
+                         <td class="player">
+                             <h3 class="title">
+                                 ${path.name}
+                                 <div class="audios">
+                                 <audio src=${path.src}> </audio>
+                                 <i class="fa-solid fa-play"></i>
+                             </div>
+                                 </h3>
+                             <div class="hidden">
+                                ${child_content}
+                             </div>
+                         </td>
+                     </tr>`
 
     })
 
+    function drawerFunction(evt, key) {
+        console.log(evt, key)
+        if (document.querySelectorAll('.hidden')[key].style.display === "none") {
+            document.querySelectorAll('.hidden')[key].style.display = "block";
+            document.querySelectorAll('.title')[key].style.textAlign = "center";
+            document.querySelectorAll('.title')[key].style.color = "#f12711";
+            document.querySelectorAll('.inside-row')[key].style.backgroundColor = "#ffdab9";
+        }
+        else {
+            document.querySelectorAll('.hidden')[key].style.display = "none";
+            document.querySelectorAll('.title')[key].style.textAlign = "left";
+            document.querySelectorAll('.title')[key].style.color = "#000";
+            if (key % 2 == 0)
+                document.querySelectorAll('.inside-row')[key].style.backgroundColor = "#c0c0c0";
+            else
+                document.querySelectorAll('.inside-row')[key].style.backgroundColor = "#fff";
+        }
+    };
     document.querySelector('table').innerHTML += content;
     console.log(document.querySelectorAll('span'));
     document.querySelectorAll('.player').forEach((event, key) => {
-        event.addEventListener('click', () => {
-            if (document.querySelectorAll('.hidden')[key].style.display === "none") {
-                document.querySelectorAll('.hidden')[key].style.display = "block";
-                document.querySelectorAll('.title')[key].style.textAlign = "center";
-                document.querySelectorAll('.title')[key].style.color = "#f12711";
-                document.querySelectorAll('.inside-row')[key].style.backgroundColor = "#ffdab9";
-            }
-            else {
-                document.querySelectorAll('.hidden')[key].style.display = "none";
-                document.querySelectorAll('.title')[key].style.textAlign = "left";
-                document.querySelectorAll('.title')[key].style.color = "#000";
-                if (key % 2 == 0)
-                    document.querySelectorAll('.inside-row')[key].style.backgroundColor = "#c0c0c0";
-                else
-                    document.querySelectorAll('.inside-row')[key].style.backgroundColor = "#fff";
-            }
+        event.addEventListener('click', (evt) => {
+            drawerFunction(evt, key)
         })
     })
-    let audios = document.getElementsByClassName('audios');
-    console.log(audios);
-
+    let audios = document.querySelectorAll('.audios');
+    let play = Array(audios.length).fill(false);
     for (let i = 0; i < audios.length; i++) {
-        let my_audio = audios[i].children[0];
-        let toggle_btn = audios[i].children[1];
-        toggle_btn.addEventListener('click', () => {
-            //   if(my_audio.paused)
-            //   toggle_btn.classList.toggle("fa-pause");
-            if (my_audio.paused) {
-                my_audio.play();
-                toggle_btn.classList.replace("fa-play", "fa-pause");
+        audios[i].children[1].addEventListener('click', () => {
+            // already playing
+            if (play[i]) {
+                play[i] = false;
+                audios[i].children[0].pause();
+                audios[i].children[1].classList.replace("fa-pause", "fa-play");
             }
+            // not already playing
             else {
-                my_audio.pause();
-                toggle_btn.classList.replace("fa-pause", "fa-play");
+                // pause all other audios and start this new only
+                for (let j = 0; j < audios.length; ++j) {
+                    let my_audio = audios[j].children[0];
+                    let toggle_btn = audios[j].children[1];
+                    if (i !== j) {
+                        play[j] = false;
+                        my_audio.pause();
+                        toggle_btn.classList.replace("fa-pause", "fa-play");
+                    }
+                    else {
+                        my_audio.currentTime = 0;
+                        my_audio.play();
+                        play[j] = true;
+                        toggle_btn.classList.replace("fa-play", "fa-pause");
+                    }
+                }
             }
         })
 

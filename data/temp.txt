@@ -1,7 +1,0 @@
-On the day of Ekadashi, devotees keep a strict fast and break their fast on the next day only after sunrise. Devotees can choose to observe vrat without water or with only water or with only fruits. As per Hindu religion, those who fast on Ekadashi are considered to get rid of malefic planetary influences, be blessed with happiness, and gain the right peace of mind to think of God and attain Moksha.
-
-  <!-- <% data.data.forEach((year)=>{%>
-             <% year.forEach((month)=>{%>
-                <% month.forEach((date)=>{%>
-                        <h3> <%= date.event %></h3>
-                    <%}); %>

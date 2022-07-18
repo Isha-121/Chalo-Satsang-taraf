@@ -1,77 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+    <link rel="stylesheet" href="/css/events.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/events.css">
-</head>
-
-<body>
+  <body>
     <%- include("./partials/Navbar.ejs") %>
-        <div class="date-navbar">
-            <span id="curr-date">
-            </span>
-            <div class="selector">
-                <select name="Month" id="month">
-                    <option value="0" id="def-month" selected></option>
-                    <option value="1"> Jan </option>
-                    <option value="2"> Feb </option>
-                    <option value="3"> Mar </option>
-                    <option value="4"> Apr </option>
-                    <option value="5"> May </option>
-                    <option value="6"> June </option>
-                    <option value="7"> July </option>
-                    <option value="8"> Aug </option>
-                    <option value="9"> Sep </option>
-                    <option value="10"> Oct </option>
-                    <option value="11"> Nov </option>
-                    <option value="12"> Dec </option>
+    <div class="date-navbar">
+      <span id="curr-date"> </span>
+      <div class="selector">
+        <select name="Month" id="month">
+          <option value="0" id="def-month" selected></option>
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+        <select name="year" id="year">
+          <option value="0" id="def-year" selected></option>
+          <option value="1">2022</option>
+          <option value="2">2023</option>
+          <option value="3">2024</option>
+          <option value="4">2025</option>
+          <option value="5">2026</option>
+        </select>
+      </div>
+    </div>
+    <div class="main-content">
+      <h2>Events (પુષ્ટિમાર્ગીય ઉત્સવ)</h2>
+      <h3 id="selected-date"></h3>
+      <hr />
+      <div class="content"></div>
+    </div>
+  </body>
+  <script>
 
-                </select>
-                <select name="year" id="year">
-                    <option value="0" id="def-year" selected></option>
-                    <option value="1"> 2022 </option>
-                    <option value="2"> 2023 </option>
-                    <option value="3"> 2024 </option>
-                    <option value="4"> 2025 </option>
-                    <option value="5"> 2026 </option>
-                </select>
-            </div>
-        </div>
-        <div class="main-content">
-            <h2> Events (પુષ્ટિમાર્ગીય ઉત્સવ)</h2>
-            <div class="content">
-                <h3 id="selected-date"> </h3>
-                <hr>
-                <!-- <% var test_data = 100 %> -->
-                
-            </div>
-        </div>
-</body>
-<script>
-    
     const date = new Date();
     const nameOfMonth = date.toLocaleString(
-        'default', { month: 'short' }
+        'default', { month: 'long' }
     );
-    document.querySelector('#curr-date').innerHTML = date.toDateString();
+    document.querySelector('#curr-date').innerHTML = date.toLocaleString('default', {year:"numeric", day:"numeric", weekday:"short",month:"long"});
     document.querySelector('#def-month').innerHTML = nameOfMonth;
     document.querySelector('#def-year').innerHTML = date.getFullYear();
     let selected_month = document.getElementById('month');
-    let month_option = selected_month.options[selected_month.selectedIndex].innerHTML;
+    let     month_option = selected_month.options[selected_month.selectedIndex].innerHTML;
     let selected_year = document.getElementById('year');
     let year_option = selected_year.options[selected_year.selectedIndex].innerHTML;
     document.querySelector('#selected-date').innerHTML = `${month_option} ${year_option}`;
-     
+
     var data = <%- JSON.stringify(data) %>
         data.forEach((years) => {
             years.years.forEach((month) => {
                 month.months.forEach((date) => {
                     // console.log(this.options[this.value].innerHTML)
-                    if (date.month.substr(0,3) === month_option) {
+                    if (date.month=== month_option) {
                         parent_content = ``;
                         date.dates.forEach((ele) => {
                             parent_content += `<div class="data-content">
@@ -98,11 +92,9 @@
         });
     document.querySelector(".content").innerHTML += parent_content;
     document.getElementById('month').addEventListener('change', function () {
-        //console.log(this);
-       // var parent_content = ``;
         month_option = this.options[this.value].innerHTML;
         document.querySelector('#selected-date').innerHTML = `${month_option} ${year_option}`;
-        
+
     })
     document.getElementById('year').addEventListener('change', function () {
         year_option = this.options[this.value].innerHTML;
@@ -111,6 +103,7 @@
     var parent_content=``;
     document.getElementById('month').addEventListener('change',function(){
         data.forEach((years) => {
+            parent_content=``;
             years.years.forEach((month) => {
                 month.months.forEach((date) => {
                    // console.log(this.options[this.value].innerHTML)
@@ -139,21 +132,12 @@
             });
             });
         });
-        // console.log(data);
-        //console.log(parent_content);
-        document.querySelector(".content").innerHTML += parent_content;
+        if(parent_content!=="")
+        document.querySelector(".content").innerHTML = parent_content;
+        else
+        {
+            document.querySelector(".content").innerHTML = `<h2>No events found for ${month_option}-${year_option}</h2>`;
+        }
     })
-//    var parent_content = ``; 
- //  var data = <%- JSON.stringify(data) %>
-    //  console.log(data);
-    // console.log(parent_content);
-    //  document.querySelector(".content").innerHTML += parent_content;
-    //var data = <%- JSON.stringify(data) %>
-
-    //looping
-
-
-
-</script>
-
+  </script>
 </html>

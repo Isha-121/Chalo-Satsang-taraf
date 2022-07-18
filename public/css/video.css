@@ -26,6 +26,11 @@
     -webkit-text-fill-color: transparent;
     padding-top: 0.6em;
 }
+.video-container a
+{
+    color:black;
+    text-decoration: none;
+}
 .video-container .card-container
 {
     display: flex;
@@ -58,5 +63,9 @@
 {
     width:60%;
 }
-
+.video-container .card-container img
+{
+    width:250px;
+    height:200px;
+}
 

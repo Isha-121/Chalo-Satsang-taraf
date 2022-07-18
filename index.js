@@ -1,23 +1,18 @@
 const express = require("express");
 const path = require("path");
-const fs = require("fs");
-const { resourceLimits } = require("worker_threads");
 const { data } = require("./data/data");
 const { paths } = require("./data/paths");
+const { bhajan } = require("./data/bhajan");
 const bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
 const port = process.env.PORT || 3001;
 const app = express();
-const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-const passport_local_mongoose = require("passport-local-mongoose");
 const User = require("./src/models/user");
 const Questions = require("./src/models/Questions");
 var session = require("express-session");
 var flash = require("connect-flash");
-var alert = require("alert");
 require("./src/db/conn");
 
 // to define and render template engines
@@ -110,7 +105,7 @@ app.get("/pathavali/nitya_niyam_path", (req, res) => {
   res.render("Nitya_niyam_path", { data: paths });
 });
 app.get("/pathavali/bhajan",(req,res)=>{
-  res.render("bhajan", {data:paths});
+  res.render("bhajan", {data:bhajan});
 });
 app.get("/pathavali/kirtan", (req, res) => {
   res.render("kirtan", { data: paths });
@@ -129,6 +124,9 @@ app.get("/videos", (req, res) => {
 });
 app.get("/videos/bal_leela", (req, res) => {
   res.render("bal_leela");
+});
+app.get("/videos/geeta",(req,res)=>{
+  res.render("geeta");
 });
 app.get("/api/event-details", (req, res) => {
   res.send(data);
